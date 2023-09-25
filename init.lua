@@ -1,4 +1,3 @@
-require('packer-plugins')
 local set = vim.opt
 
 --                                  CODE-NUMBER
@@ -20,11 +19,8 @@ set.expandtab = true
 
 set.listchars = { trail = '·', precedes = '«', extends = '»', nbsp = '▒' }
 
---                                  COLORSCHEME
--- =============================================================================
+-- Package Manager
+require('pkm/lazy-init')
 
-vim.o.background = "dark"
-local colorscheme = "gruvbox"
-if not pcall(vim.cmd, "colorscheme " .. colorscheme) then
-    vim.cmd "colorscheme desert"
-end
+-- Color Theme
+require('theme').choose('gruvbox')
